@@ -409,8 +409,8 @@ public class GameController extends AnimationTimer implements EventHandler<KeyEv
     
     private boolean isPlayerLose() {
         Invader i = wave.getBottomMost();
-        int y = i.getY();
-        return y > General.GAME_SPACE_LOWER_BOUND / 1.20D;
+        int y = i.getY() + Invader.getHeightOf(i.getType());
+        return y > General.GAME_SPACE_LOWER_BOUND;
     }
     
     @Override
