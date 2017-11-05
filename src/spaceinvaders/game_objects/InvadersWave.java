@@ -22,7 +22,7 @@ import static spaceinvaders.game_objects.Invader.INVADER_2;
  */
 public class InvadersWave {
     
-    private static final int MIN_DELAY = 50;
+    private static final int MIN_DELAY = 5;
     
     private static int GLOBAL_FRAME_IDX;    
     
@@ -54,9 +54,9 @@ public class InvadersWave {
         invadersAliveCount = invaders.length * invaders[0].length;
     }
     
-    public void reset(int delay, int delayDecrement, int newY) {
+    public void reset(int delay, int delayDecrement, int dy) {
         for (Invader[] invs : invaders) 
-            for (Invader i : invs) i.reset(newY);
+            for (Invader i : invs) i.reset(dy);
         invadersAliveCount = invaders.length * invaders[0].length;
         waveDirection = initDirection;
         this.delay = delay;

@@ -152,7 +152,7 @@ public class GameController extends AnimationTimer implements EventHandler<KeyEv
     private static final int[][] STARS = initStars();
     
     private static int[][] initStars() {
-        int[][] stars = new int[30][2];
+        int[][] stars = new int[50][2];
         for (int i = 0; i < stars.length; i++) {
             stars[i][0] = RANDOM.nextInt(App.getWidth());
             stars[i][1] = RANDOM.nextInt(App.getHeight());
@@ -163,7 +163,7 @@ public class GameController extends AnimationTimer implements EventHandler<KeyEv
     private void drawStars() {
         gc.setFill(Color.WHITE);
         for (int i = 0; i < STARS.length; i++) {
-            gc.fillRect(STARS[i][0], STARS[i][1], 1, 1);            
+            if (RANDOM.nextDouble() > 0.05D) gc.fillRect(STARS[i][0], STARS[i][1], 1, 1);            
         }
     }
     
@@ -194,6 +194,7 @@ public class GameController extends AnimationTimer implements EventHandler<KeyEv
                 WAVE_INIT_DELAY, WAVE_DELAY_DECREMENT, 
                 DIRECTION_RIGHT, 140 >> 2, INIT_WAVE_Y, player
         );
+        shots.clear();
         currentWaveDelay = WAVE_INIT_DELAY;
         currentDelayDecrement = WAVE_DELAY_DECREMENT;
         currentWaveDy = 0;
